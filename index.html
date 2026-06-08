@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Best Friend Day, Saima ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="Aashiyan.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="audio-ui" class="glass-panel hidden-initial">
+        <button id="play-pause-btn">⏸️</button>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5">
+    </div>
+
+    <div id="scene1-intro">
+        <div id="star-container"></div>
+        <div class="intro-text-container">
+            <h1 id="intro-text-1" class="intro-text">Some friendships are unexpected...</h1>
+            <h1 id="intro-text-2" class="intro-text">Some become unforgettable...</h1>
+            <h1 id="intro-text-3" class="intro-text">And some become part of your favourite memories.</h1>
+            <button id="start-btn" class="intro-text">Tap To Begin ✨</button>
+        </div>
+    </div>
+
+    <main id="main-content" class="hidden-initial">
+        <div id="environment-container"></div>
+
+        <section id="scene2" class="fullscreen-scene">
+            <div class="hero-content reveal-element">
+                <h1 class="hero-name">Saima ❤️</h1>
+                <h2 class="hero-subtitle">Happy Best Friend Day</h2>
+            </div>
+        </section>
+
+        <section id="scene3" class="scene">
+            <div class="glass-card story-card reveal-element delay-1">
+                <h2>Our Story</h2>
+                <p>"Who knew that a simple friendship would become one of the most important parts of my life?"</p>
+            </div>
+        </section>
+
+        <section id="scene4" class="scene">
+            <h2 class="section-title reveal-element">Beautiful Memories</h2>
+            <div class="card-grid">
+                <div class="glass-card memory-card reveal-element delay-1">
+                    <span class="card-icon">✨</span>
+                    <p>"The best friendships are built from countless small moments."</p>
+                </div>
+                <div class="glass-card memory-card reveal-element delay-2">
+                    <span class="card-icon">💬</span>
+                    <p>"Every conversation became a memory worth keeping."</p>
+                </div>
+                <div class="glass-card memory-card reveal-element delay-3">
+                    <span class="card-icon">😊</span>
+                    <p>"Every laugh made the friendship stronger."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="scene5" class="scene">
+            <div class="glass-card premium-card special-memory-card reveal-element">
+                <div class="sparkle-border"></div>
+                <h2>A Special Memory ✨</h2>
+                <p class="story-text">"One of my favourite memories will always be the day I sent money online so you could buy ice cream.</p>
+                <p class="story-text">Seeing you enjoy it and seeing your happiness made that moment unforgettable for me.</p>
+                <p class="story-text highlight-text">It wasn't about the ice cream.</p>
+                <p class="story-text highlight-text">It was about seeing someone important to me genuinely happy.</p>
+                <p class="story-text">That memory will always have a special place in my heart."</p>
+                <div class="floating-icons">
+                    <span class="float-anim">🍦</span>
+                    <span class="float-anim delay-1">✨</span>
+                    <span class="float-anim delay-2">💖</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="scene6" class="scene">
+            <h2 class="section-title reveal-element">Why You Are Special</h2>
+            <div class="card-grid grid-6">
+                <div class="glass-card trait-card reveal-element delay-1"><p>Your kindness 🌸</p></div>
+                <div class="glass-card trait-card reveal-element delay-2"><p>Your support 🤝</p></div>
+                <div class="glass-card trait-card reveal-element delay-3"><p>Your friendship 💫</p></div>
+                <div class="glass-card trait-card reveal-element delay-4"><p>Your presence 🌟</p></div>
+                <div class="glass-card trait-card reveal-element delay-5"><p>The happiness you bring 😊</p></div>
+                <div class="glass-card trait-card reveal-element delay-6"><p>The memories we share 📸</p></div>
+            </div>
+        </section>
+
+        <section id="scene7" class="scene">
+            <h2 class="section-title reveal-element">Appreciation</h2>
+            <div class="card-grid grid-4">
+                <div class="glass-card apprec-card reveal-element delay-1"><p>Thank you for every laugh.</p></div>
+                <div class="glass-card apprec-card reveal-element delay-2"><p>Thank you for every memory.</p></div>
+                <div class="glass-card apprec-card reveal-element delay-3"><p>Thank you for every conversation.</p></div>
+                <div class="glass-card apprec-card reveal-element delay-4"><p>Thank you for always being yourself.</p></div>
+            </div>
+        </section>
+
+        <section id="scene8" class="scene fullscreen-scene finale-scene">
+            <div class="finale-environment"></div>
+            <div class="glass-card finale-card reveal-element">
+                <p class="finale-text">"Life gives us many people,<br>but only a few become part of our most cherished memories.</p>
+                <p class="finale-text">Through every conversation,<br>every laugh,<br>every memory,<br>and every special moment,</p>
+                <p class="finale-text">you've made life brighter.</p>
+                <p class="finale-text highlight-text">Thank you for being such an amazing besti.</p>
+                <h2 class="finale-signature">Happy Best Friend Day, Saima ❤️</h2>
+                <h3 class="finale-sender">— Shaan</h3>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

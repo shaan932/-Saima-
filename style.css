@@ -1,0 +1,406 @@
+/* Base & Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-pink: #ff7eb3;
+    --primary-purple: #7a28cb;
+    --dark-bg: #0a0510;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-light: #ffffff;
+    --text-pink: #ffd1e8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .hero-name, .finale-signature {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Audio UI */
+#audio-ui {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    transition: opacity 1s ease;
+}
+
+#audio-ui button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#volume-slider {
+    width: 80px;
+    accent-color: var(--primary-pink);
+}
+
+.hidden-initial {
+    opacity: 0;
+    pointer-events: none;
+    display: none !important;
+}
+
+/* Scene 1: Intro */
+#scene1-intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 2s ease-in-out;
+}
+
+#star-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px white; }
+}
+
+.intro-text-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+}
+
+.intro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    font-weight: 300;
+    letter-spacing: 2px;
+    transition: opacity 1.5s ease;
+}
+
+#start-btn {
+    background: transparent;
+    border: 2px solid var(--primary-pink);
+    color: var(--primary-pink);
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 15px rgba(255, 126, 179, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px rgba(255, 126, 179, 0.4); transform: translate(-50%, -50%) scale(1); }
+    50% { box-shadow: 0 0 30px rgba(255, 126, 179, 0.8); transform: translate(-50%, -50%) scale(1.05); }
+    100% { box-shadow: 0 0 15px rgba(255, 126, 179, 0.4); transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Main Content Background */
+#main-content {
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #4a154b, #832759);
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
+    position: relative;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating Elements (Clouds, Butterflies, etc.) */
+#environment-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.env-item {
+    position: absolute;
+    opacity: 0.6;
+    animation: floatUp linear infinite;
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(110vh) translateX(0) rotate(0deg); }
+    100% { transform: translateY(-10vh) translateX(50px) rotate(360deg); }
+}
+
+/* General Scene Styles */
+.scene {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.fullscreen-scene {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Glassmorphism Classes */
+.glass-panel, .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Typography & Layouts */
+.section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 50px;
+    color: var(--text-pink);
+    text-shadow: 0 0 20px rgba(255, 126, 179, 0.5);
+    text-align: center;
+}
+
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+.card-grid > div {
+    flex: 1 1 300px;
+    max-width: 350px;
+}
+
+.grid-6 > div { flex: 1 1 250px; max-width: 300px; }
+.grid-4 > div { flex: 1 1 250px; max-width: 400px; }
+
+/* Scene 2: Hero */
+.hero-content {
+    text-align: center;
+}
+
+.hero-name {
+    font-size: clamp(4rem, 10vw, 8rem);
+    background: linear-gradient(to right, #ffb199, #ff0844);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 40px rgba(255, 8, 68, 0.4);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--text-pink);
+    letter-spacing: 4px;
+    font-weight: 300;
+}
+
+/* Scene 3: Story */
+.story-card {
+    max-width: 800px;
+}
+.story-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-pink);
+}
+.story-card p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* Scene 4: Memories */
+.memory-card {
+    padding: 40px 30px;
+    transition: transform 0.3s ease;
+}
+.memory-card:hover { transform: translateY(-10px); }
+.card-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Scene 5: Special Memory */
+.premium-card {
+    max-width: 900px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 126, 179, 0.4);
+    box-shadow: 0 0 40px rgba(255, 126, 179, 0.2);
+}
+
+.sparkle-border {
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-pink), transparent);
+    animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.premium-card h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--primary-pink);
+    margin-bottom: 30px;
+}
+
+.story-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.highlight-text {
+    color: var(--primary-pink);
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.floating-icons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 2.5rem;
+}
+
+.float-anim { animation: gentleFloat 3s ease-in-out infinite; }
+.delay-1 { animation-delay: 1s; }
+.delay-2 { animation-delay: 2s; }
+.delay-3 { animation-delay: 3s; }
+.delay-4 { animation-delay: 4s; }
+.delay-5 { animation-delay: 5s; }
+.delay-6 { animation-delay: 6s; }
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Scene 6 & 7: Traits & Appreciations */
+.trait-card, .apprec-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.trait-card:hover, .apprec-card:hover {
+    background: rgba(255, 126, 179, 0.15);
+    transform: scale(1.05);
+}
+
+/* Scene 8: Finale */
+.finale-scene {
+    position: relative;
+}
+.finale-card {
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 126, 179, 0.5);
+}
+.finale-text {
+    font-size: 1.2rem;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+.finale-signature {
+    margin-top: 40px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--primary-pink);
+}
+.finale-sender {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-pink);
+    text-align: right;
+}
+
+/* Scroll Reveal Animations */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-element.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .glass-panel, .glass-card { padding: 25px 20px; }
+    .card-grid { gap: 15px; }
+    .story-text { font-size: 1.1rem; }
+    .finale-text { font-size: 1.1rem; }
+}
